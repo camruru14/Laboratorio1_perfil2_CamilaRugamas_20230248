@@ -5,27 +5,42 @@ import java.util.Set;
 import java.util.TreeMap;
 
 public class Stocks {
-    public void ListadoProductos(){
+    TreeMap<String, Integer> productos = new TreeMap<>();
+    String[][] id = {
+            {"1", "50"},
+            {"2", "100"},
+            {"3", "100"},
+            {"4", "100"},
+            {"5", "100"},
+    };
+    public void ListadoProductos() {
         String NombreProductos;
         int cantidadStock;
-        TreeMap<String, Integer> productos = new TreeMap<>();
+        int nuevaCantidad;
 
-        productos.put("Soda",50);
-        productos.put("Churro",100);
-        productos.put("Pan",100);
-        productos.put("Pasteles",100);
-        productos.put("Pizza",100);
+        productos.put("Soda", 50);
+        productos.put("Churro", 100);
+        productos.put("Pan", 100);
+        productos.put("Pasteles", 100);
+        productos.put("Pizza", 100);
 
         System.out.println("Lista de Productos: " + productos);
 
         System.out.println("Actualizar un producto: " + productos);
-        productos.(1, "Gaseosa", 20);
-
     }
 
 
+    public void StockBajo() {
 
+        System.out.println("\nProductos con stock bajo (< 10 unidades):");
+        boolean encontrado = false;
 
-
-
+        for (int i = 0; i < productos.length; i++) {
+            int stock = Integer.parseInt(productos[i][1]);
+            if (stock < 10) {
+                System.out.println("ID: " + productos[i][0] + " - Stock: " + productos[i][1]);
+                encontrado = true;
+            }
+        }
+    }
 }
